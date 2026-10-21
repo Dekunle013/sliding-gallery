@@ -118,6 +118,7 @@ body {
 }
 
 .dots__dot--active {
-  background: #fff;
+  background: #767676;
   transform: scale(1.25);
+  border: 2px solid #fff;
 }
