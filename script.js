@@ -11,6 +11,16 @@ const maxSlide = slides.length;
 
 // slider.style.transform = "scale(0.5) translateX(-800px)";
 
+const createDots = () => {
+  slides.forEach((_, i) => {
+    dotsContainer.insertAdjacentHTML(
+      "beforeend",
+      `<button class='dots__dot' data-slide='${i}'></button>`,
+    );
+  });
+};
+createDots();
+
 const goToSlide = (slide) => {
   slides.forEach((s, i) => {
     s.style.transform = `translateX(${100 * (i - slide)}%)`;
@@ -38,4 +48,10 @@ btnLeft.addEventListener("click", prevSlide);
 document.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") prevSlide();
   if (e.key === "ArrowRight") nextSlide();
+});
+
+dotsContainer.addEventListener("click", (e) => {
+  if (e.target.classList.contains(".dots__dot")) {
+    const slide = e.target.dataset.slide;
+  }
 });
